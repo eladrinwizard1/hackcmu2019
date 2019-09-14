@@ -2,7 +2,7 @@ from api import app
 from api import db_interface
 from api.sources import allrecipes_api as ar_api
 from api.sources import edamam_api as ed_api
-from api.sources import marimot_api as m_api
+from api.sources import marmiton_api as m_api
 from flask import jsonify
 
 @app.route('/recipe/<int:id>', methods=['GET'])
