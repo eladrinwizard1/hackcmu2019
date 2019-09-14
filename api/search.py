@@ -10,6 +10,6 @@ def search():
     ingredients = request.json['ingredients']
     ids = []
     ids.extend(ar_api.search(ingredients))
-    ids.extend(ed_api.search(ingredients))
+    #ids.extend(ed_api.search(ingredients))
     ids.extend(m_api.search(ingredients))
     return jsonify(ids)
