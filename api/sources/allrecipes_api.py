@@ -20,6 +20,7 @@ def search(ingredients: List[str]) -> List[int]:
                     'desc' : [recipe.get('description') for recipe in query_results]})
 
 def lookup(url: str, extras: dict) -> Recipe:
+    source = 'allrecipes'
     recipe_details = ar.get(url)
     name = recipe_details.get('name')
     ingredients = recipe_details.get('ingredients')
@@ -33,5 +34,6 @@ def lookup(url: str, extras: dict) -> Recipe:
                     'rating' : rating,
                     'url' : url,
                     'desc' : desc,
-                    'image' : image
+                    'image' : image,
+                    'source' : source
                     })

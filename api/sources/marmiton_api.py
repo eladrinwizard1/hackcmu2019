@@ -11,6 +11,7 @@ def search(ingredients: List[str]) -> List[int]:
     return db_interface.add([recipe['url'] for recipe in query_results], 'marmiton')
 
 def lookup(url: str) -> Recipe:
+    source = 'marmiton'
     recipe_details = mr.get(url)
     name = recipe_details.get('name')
     ingredients = recipe_details.get('ingredients')
@@ -22,5 +23,6 @@ def lookup(url: str) -> Recipe:
                     'time' : time,
                     'image' : image,
                     'rating' : rating,
-                    'url' : url
+                    'url' : url,
+                    'source' : source
                     })

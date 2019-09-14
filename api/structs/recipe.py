@@ -7,6 +7,7 @@ class Recipe:
         self.desc = details.get('desc')
         self.rating = details.get('rating')
         self.url = details.get('url')
+        self.source = details.get('source')
 
     def to_dict(self):
         return {
@@ -16,5 +17,6 @@ class Recipe:
                 'image' : self.image,
                 'desc' : self.desc,
                 'rating' : self.rating,
-                'url' : self.url
+                'url' : self.url,
+                'source' : self.source
                 }
