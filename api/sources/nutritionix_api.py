@@ -12,4 +12,8 @@ def search(ingredients: List[str]) -> List[int]:
     print(recipe_url_list)
     #return db_interface.add(recipe_url_list)
 
-
+def lookup(item_id: str) -> Recipe:
+    recipe_details = ar.get(item_id)
+    name = recipe_details['item_name']
+    ingredients = recipe_details['nf_ingredient_statement']
+    return Recipe(name, ingredients, 0, 0)
