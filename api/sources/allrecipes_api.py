@@ -16,7 +16,7 @@ def search(ingredients: List[str]) -> List[int]:
     return db_interface.add([recipe['url'] for recipe in query_results], 
             'allrecipes', 
             extras={'image' : [recipe.get('image') for recipe in query_results],
-                    'desc' : [recipe.get('description') for recipe in query_results])
+                    'desc' : [recipe.get('description') for recipe in query_results]})
 
 def lookup(url: str, extras: dict) -> Recipe:
     recipe_details = ar.get(url)
