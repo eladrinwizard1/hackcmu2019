@@ -9,7 +9,10 @@ def search(ingredients: List[str]) -> List[int]:
     tot = ','.join(ingredients)
     response = requests.get(f"https://www.food2fork.com/api/search?key={os.environ['FOOD2FORK_ID']}&q={tot}")
     recipe_dict = json.loads(response.text)
-    recipe_url_list = [recipe['f2f_url'] for recipe in recipe_dict['recipes']]
+    try:
+        recipe_url_list = [recipe['f2f_url'] for recipe in recipe_dict['recipes']]
+    except Exception as e:
+        return []
     return db_interface.add(recipe_url_list, 'food2fork')
 
 def lookup(f2f_url: str) -> Recipe:
