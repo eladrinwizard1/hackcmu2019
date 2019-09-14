@@ -3,6 +3,7 @@ from api.sources import allrecipes_api as ar_api
 from api.sources import edamam_api as ed_api
 from api.sources import marmiton_api as m_api
 from api.sources import nutritionix_api as n_api
+from api.sources import food2fork_api as f2f_api
 from flask import jsonify
 from flask import request
 
@@ -15,4 +16,5 @@ def search():
     #ids.extend(ed_api.search(ingredients))
     ids.extend(m_api.search(ingredients))
     #ids.extend(n_api.search(ingredients))
+    ids.extend(f2f_api.search(ingredients))
     return jsonify(ids)
