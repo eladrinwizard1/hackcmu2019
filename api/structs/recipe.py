@@ -6,7 +6,7 @@ class Recipe:
         self.image = details.get('image')
         self.desc = details.get('desc')
         self.rating = details.get('rating')
-        self.url = details.get('url)'
+        self.url = details.get('url')
 
     def to_dict(self):
         return {
