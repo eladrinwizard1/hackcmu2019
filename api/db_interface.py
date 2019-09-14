@@ -25,6 +25,6 @@ def get(ident: int) -> (str, str):
     url = rdb.get(f'recipe:{ident}:url').decode('utf-8')
     source = rdb.get(f'recipe:{ident}:source').decode('utf-8')
     extras = dict()
-    extras['image'] = rdb.get(f'recipe:{ident}:image').decode('utf-8')
-    extras['desc'] = rdb.get(f'recipe:{ident}:desc').decode('utf-8')
+    extras['image'] = rdb.get(f'recipe:{ident}:image', b'null').decode('utf-8')
+    extras['desc'] = rdb.get(f'recipe:{ident}:desc', b'null').decode('utf-8')
     return source, url, extras
