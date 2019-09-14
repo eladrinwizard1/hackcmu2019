@@ -1,7 +1,8 @@
 import requests
-import db_interface
+from api import db_interface
 import os
 import json
+from api.structs import Recipe
 from typing import List
 
 def search(ingredients: List[str]) -> List[int]:
