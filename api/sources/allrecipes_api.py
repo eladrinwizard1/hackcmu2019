@@ -21,4 +21,5 @@ def lookup(url: str) -> Recipe:
     ingredients = recipe_details.get('ingredients')
     time = recipe_details.get('total_time')
     rating = recipe_details.get('rating')
+    print(name, ingredients)
     return Recipe(name, ingredients, time, rating)
