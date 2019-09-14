@@ -10,9 +10,9 @@ def init_conn():
                       db=0)
 
 def add(urls: List[str], source: str) -> List[int]:
-    ident = rdb.incr('idcount')
     idents = []
     for url in urls:
+        ident = rdb.incr('idcount')
         rdb.set(f'recipe:{ident}:url', url)
         rdb.set(f'recipe:{ident}:source', source)
         idents.append(ident)
