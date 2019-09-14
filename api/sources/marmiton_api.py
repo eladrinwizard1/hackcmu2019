@@ -8,7 +8,7 @@ def search(ingredients: List[str]) -> List[int]:
         'aqt' : ' '.join(ingredients),
     }
     query_results = Marmiton.search(query_options)
-    return db_interface.add([recipe['url'] for recipe in query_results])
+    return db_interface.add([recipe['url'] for recipe in query_results], 'marmiton')
 
 def lookup(url: str) -> Recipe:
     recipe_details = ar.get(url)
