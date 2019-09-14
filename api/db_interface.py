@@ -2,8 +2,11 @@ import redis
 import os
 from typing import List
 
+rdb = None
+
 def init_conn():
-    global rdb = redis.Redis(host='localhost', port=os.environ['REDIS_PORT'], \
+    global rdb
+    rdb = redis.Redis(host='localhost', port=os.environ['REDIS_PORT'], \
                              db=0)
 
 def add(urls: List[str], source: str) -> List[int]:

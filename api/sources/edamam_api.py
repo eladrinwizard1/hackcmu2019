@@ -1,5 +1,5 @@
 import requests
-import db_interface
+import api.db_interface
 import os
 import json
 from typing import List
