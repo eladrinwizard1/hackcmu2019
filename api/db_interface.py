@@ -3,21 +3,22 @@ import os
 from typing import List
 
 rdb = None
+ident = 0
 
 def init_conn():
     global rdb
     rdb = redis.Redis(host='localhost', port=os.environ['REDIS_PORT'], \
-                             db=0)
+                      db=0)
 
 def add(urls: List[str], source: str) -> List[int]:
-    add.ident += 1
-    indents = []
+    global ident
+    ident += 1
+    idents = []
     for url in urls:
-        rdb.add(f'recipe:{add.ident}:url', url)
-        rdb.add(f'recipe:{add.ident}:source', source)
-        idents.append(add.ident)
+        rdb.set(f'recipe:{ident}:url', url)
+        rdb.set(f'recipe:{ident}:source', source)
+        idents.append(ident)
     return idents
-add.ident = 0
 
 def get(ident: int) -> (str, str):
     url = rdb.get(f'recipe:{ident}:url').decode('utf-8')
