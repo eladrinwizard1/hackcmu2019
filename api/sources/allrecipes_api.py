@@ -5,6 +5,7 @@ from typing import List
 
 def search(ingredients: List[str]) -> List[int]:
     query_options = {
+        'wt' : ' '.join(ingredients),
         'ingIncl' : ' '.join(ingredients),
         'sort' : 'p'
     }
