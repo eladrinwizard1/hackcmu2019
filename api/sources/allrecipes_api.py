@@ -8,7 +8,11 @@ def search(ingredients: List[str]) -> List[int]:
         'ingIncl' : ' '.join(ingredients),
         'sort' : 'p'
     }
-    query_results = ar.search(query_options)
+    try:
+        query_results = ar.search(query_options)
+    except StopIteration:
+        print("No results found on allrecipes")
+        return []
     return db_interface.add([recipe['url'] for recipe in query_results], 'allrecipes')
 
 def lookup(url: str) -> Recipe:
