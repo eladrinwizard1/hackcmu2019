@@ -12,8 +12,11 @@ def search(ingredients: List[str]) -> List[int]:
 
 def lookup(url: str) -> Recipe:
     recipe_details = ar.get(url)
-    name = recipe_details['name']
-    ingredients = recipe_details['ingredients']
-    time = recipe_details['total_time']
-    rating = recipe_details['rate']
-    return Recipe(name, ingredients, time, rating)
+    name = recipe_details.get('name')
+    ingredients = recipe_details.get('ingredients')
+    time = recipe_details.get('total_time')
+    rating = recipe_details.get('rate')
+    return Recipe({ 'name' : name,
+                    'ingredients' : ingredients,
+                    'time' : time,
+                    'rating' : rating})
