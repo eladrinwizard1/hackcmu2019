@@ -1,6 +1,6 @@
 from allrecipes import AllRecipes as ar
-from models import Recipe
-import db_interface
+from api.structs import Recipe
+import api.db_interface
 from typing import List
 
 def search(ingredients: List[str]) -> List[int]:
