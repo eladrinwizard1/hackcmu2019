@@ -16,4 +16,4 @@ def recipe(id: int):
     elif source == 'marimot':
         detailed_info = m_api.lookup(url)
     # etc...
-    return jsonify(detailed_info)
+    return jsonify(detailed_info.to_dict())
