@@ -15,8 +15,9 @@ def add(urls: List[str], source: str, extras=None) -> List[int]:
         ident = rdb.incr('idcount')
         rdb.set(f'recipe:{ident}:url', url)
         rdb.set(f'recipe:{ident}:source', source)
-        for extra in extras:
-            rdb.set(f'recipe:{ident}:{extra}', extras[extra][count])
+        if extra != None:
+            for extra in extras:
+                rdb.set(f'recipe:{ident}:{extra}', extras[extra][count])
         idents.append(ident)
     return idents
 
