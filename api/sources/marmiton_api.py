@@ -21,4 +21,6 @@ def lookup(url: str) -> Recipe:
                     'ingredients' : ingredients,
                     'time' : time,
                     'image' : image,
-                    'rating' : rating})
+                    'rating' : rating,
+                    'url' : url
+                    })
