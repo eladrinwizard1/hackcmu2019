@@ -20,6 +20,9 @@ def lookup(url: str) -> Recipe:
     name = recipe_details.get('name')
     ingredients = recipe_details.get('ingredients')
     time = recipe_details.get('total_time')
+    #desc = recipe_details.get('')
+    # FIX: CANNOT GET FROM `GET`
+    #image = recipe_deaitls.get('')
     rating = recipe_details.get('rating')
     return Recipe({ 'name' : name,
                     'ingredients' : ingredients,
