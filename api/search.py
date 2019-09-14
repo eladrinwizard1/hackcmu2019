@@ -13,5 +13,5 @@ def search():
     ids.extend(ar_api.search(ingredients))
     #ids.extend(ed_api.search(ingredients))
     ids.extend(m_api.search(ingredients))
-    ids.extend(n_api.search(ingredients))
+    #ids.extend(n_api.search(ingredients))
     return jsonify(ids)

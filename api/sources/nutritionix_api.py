@@ -12,7 +12,9 @@ def search(ingredients: List[str]) -> List[int]:
     return db_interface.add(recipe_url_list)
 
 def lookup(item_id: str) -> Recipe:
-    recipe_details = reqiests.get("https://api.nutritionix.com/v1_1/item?id={str}&appId={os.environ['NUTRITIONIX_ID']}&appKey={os.environ['NUTRITIONIX_KEY']}"item_id)
+    recipe_details = requests.get("https://api.nutritionix.com/v1_1/item?id={item_id}&appId={os.environ['NUTRITIONIX_ID']}&appKey={os.environ['NUTRITIONIX_KEY']}")
     name = recipe_details['item_name']
     ingredients = recipe_details['nf_ingredient_statement']
-    return Recipe(name, ingredients, 0, 0)
+    return Recipe({ 'name' : name,
+                    'ingredients' : ingredients
+                    })
