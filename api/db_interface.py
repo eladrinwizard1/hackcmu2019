@@ -3,7 +3,6 @@ import os
 from typing import List
 
 rdb = None
-ident = 0
 
 def init_conn():
     global rdb
@@ -11,8 +10,7 @@ def init_conn():
                       db=0)
 
 def add(urls: List[str], source: str) -> List[int]:
-    global ident
-    ident += 1
+    ident = rdb.incr('idcount')
     idents = []
     for url in urls:
         rdb.set(f'recipe:{ident}:url', url)
