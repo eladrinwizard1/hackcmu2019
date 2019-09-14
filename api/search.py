@@ -9,6 +9,7 @@ from flask import request
 @app.route('/search', methods=['POST'])
 def search():
     ingredients = request.json['ingredients']
+    print(ingredients)
     ids = []
     ids.extend(ar_api.search(ingredients))
     #ids.extend(ed_api.search(ingredients))
