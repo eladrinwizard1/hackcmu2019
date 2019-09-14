@@ -17,6 +17,6 @@ def add(urls: List[str], source: str) -> List[int]:
 add.ident = 0
 
 def get(ident: int) -> (str, str):
-    url = rdb.get(f'recipe:{ident}:url')
-    source = rdb.get(f'recipe:{ident}:source')
+    url = rdb.get(f'recipe:{ident}:url').decode('utf-8')
+    source = rdb.get(f'recipe:{ident}:source').decode('utf-8')
     return source, url
