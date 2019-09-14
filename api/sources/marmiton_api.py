@@ -1,5 +1,6 @@
 from marmiton import Marmiton
 import api.db_interface
+from api.structs import Recipe
 from typing import List
 
 def search(ingredients: List[str]) -> List[int]:
