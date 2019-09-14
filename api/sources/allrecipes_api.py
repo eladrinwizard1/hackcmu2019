@@ -1,5 +1,5 @@
 from allrecipes import AllRecipes as ar
-from api.structs import Recipe
+from api.structs.recipe import Recipe
 from api import db_interface
 from typing import List
 
