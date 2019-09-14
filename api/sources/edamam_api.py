@@ -14,7 +14,7 @@ def search(ingredients: List[str]) -> List[int]:
 
 def lookup(url: str) -> Recipe:
     response = requests.get(f"https://api.edamam.com/search?r={url}&app_id={os.environ['EDAMAM_ID']}&app_key={os.environ['EDAMAM_KEY']}")
-    recipe_details = json.loads(response.text)['recipe']
+    recipe_details = json.loads(response.text)[0]['recipe']
     name = recipe_details.get('label')
     ingredients = recipe_details.get('ingredients')
     return Recipe(name, ingredients)
