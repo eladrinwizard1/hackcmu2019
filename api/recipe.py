@@ -12,8 +12,8 @@ def recipe(id: int):
     if source == 'allrecipes':
         detailed_info = ar_api.lookup(url)
     elif source == 'edamam':
-        pass
+        detailed_info = ed_api.lookup(url)
     elif source == 'marimot':
-        pass
+        detailed_info = m_api.lookup(url)
     # etc...
     return jsonify(detailed_info)
