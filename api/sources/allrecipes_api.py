@@ -1,6 +1,6 @@
 from allrecipes import AllRecipes as ar
 from api.structs import Recipe
-import api.db_interface
+from api import db_interface
 from typing import List
 
 def search(ingredients: List[str]) -> List[int]:
@@ -9,7 +9,7 @@ def search(ingredients: List[str]) -> List[int]:
         'sort' : 'p'
     }
     query_results = ar.search(query_options)
-    return db_interface.add([recipe['url'] for recipe in query_results])
+    return db_interface.add([recipe['url'] for recipe in query_results], 'allrecipes')
 
 def lookup(url: str) -> Recipe:
     recipe_details = ar.get(url)
