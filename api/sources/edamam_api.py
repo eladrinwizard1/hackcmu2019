@@ -13,9 +13,8 @@ def search(ingredients: List[str]) -> List[int]:
     return db_interface.add(recipe_url_list, 'edamam')
 
 def lookup(url: str) -> Recipe:
-    recipe_details = ar.get(url)
-    name = recipe_details['name']
-    ingredients = recipe_details['ingredients']
-    time = recipe_details['total_time']
-    rating = recipe_details['rating']
-    return Recipe(name, ingredients, time, rating)
+    response = requests.get(f"https://api.edamam.com/search?r={url}&app_id={os.environ['EDAMAM_ID']}&app_key={os.environ['EDAMAM_KEY']}")
+    recipe_details = json.loads(response.text)['recipe']
+    name = recipe_details.get('label')
+    ingredients = recipe_details.get('ingredients')
+    return Recipe(name, ingredients)
