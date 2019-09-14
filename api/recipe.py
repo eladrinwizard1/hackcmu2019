@@ -13,7 +13,7 @@ def recipe(id: int):
         detailed_info = ar_api.lookup(url)
     elif source == 'edamam':
         detailed_info = ed_api.lookup(url)
-    elif source == 'marimot':
+    elif source == 'marmiton':
         detailed_info = m_api.lookup(url)
     # etc...
     return jsonify(detailed_info.to_dict())
