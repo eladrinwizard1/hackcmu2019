@@ -10,5 +10,5 @@ def search(ingredients: List[str]) -> List[int]:
     query_results = ar.search(query_options)
     return db_interface.add([recipe['url'] for recipe in query_results])
 
-def get(ident: int) -> Recipe:
+def lookup(ident: int) -> Recipe:
     pass
