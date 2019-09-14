@@ -1,5 +1,5 @@
 from marmiton import Marmiton
-import api.db_interface
+from api import db_interface
 from api.structs import Recipe
 from typing import List
 
