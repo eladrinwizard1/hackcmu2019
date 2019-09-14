@@ -1,1 +1,1 @@
-from api.structs import Recipe
+from api.structs import recipe
