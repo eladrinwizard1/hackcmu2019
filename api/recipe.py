@@ -8,10 +8,10 @@ from flask import jsonify
 
 @app.route('/recipe/<int:id>', methods=['GET'])
 def recipe(id: int):
-    source, url = db_interface.get(id)
+    source, url, extras = db_interface.get(id)
     detailed_info = None
     if source == 'allrecipes':
-        detailed_info = ar_api.lookup(url)
+        detailed_info = ar_api.lookup(url, extras)
     elif source == 'edamam':
         detailed_info = ed_api.lookup(url)
     elif source == 'marmiton':
